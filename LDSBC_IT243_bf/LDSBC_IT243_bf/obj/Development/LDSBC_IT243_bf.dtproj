@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">A-1079845</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJMx2YIUJc02L17ztSCGx5wAAAAACAAAAAAADZgAAwAAAABAAAAABt2PQvUsIBWLV5X8boVSbAAAAAASAAACgAAAAEAAAAEFyBkgRKVMFgv9u/67ry5aIAAAABOY9P+lvtMvw3fVGajjPCLjskmyolQC+yDCuQTZGz2au0vEGDNcEPrSnxJ8UYOBVv8zgNcy0ZdCgMMBFJw7PgWE7XLlCpeRmxPrfJS3jKHQLNL8XJkgMDZ0b0eKBgPljcQ+ODZrsyOrw0jhB2ni1e7n4V72iAEd9qDsyF5rs6oZeho/uZTQsixQAAACO8pCK5/zdSypiZByBTv3ia3DLzw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJMx2YIUJc02L17ztSCGx5wAAAAACAAAAAAADZgAAwAAAABAAAAAL0PTUCgfnHoqq9UWVjGE+AAAAAASAAACgAAAAEAAAALGqap5KPBqIrSDEucbNwhqIAAAAqxvgMEiD7KK9YSww07BxQ7wOMCqG2i7uCfLxNs3baTRElU4obcwjB/cBLuB4uyoa1kaDa0/EBTW6QCRT2i3D3t+NF74xwBeZFVQ/zAQ7f5wgYM46YbEVEXC654cPuPgtEuoPtByMdRxlLvCpdMBBmNsUnW1xlEmsUgFwlhVXjJi+sH3pKQ0bnBQAAAA29jxsNSjbthkk43t9N9J97TH1lA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -64,7 +64,7 @@
                 <SSIS:Property SSIS:Name="VersionBuild">2</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{84CFF649-3039-498F-8BB3-194DC2D97BFB}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{06D1A6CD-5190-433D-AE76-9E208E302962}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
