@@ -28,7 +28,7 @@ Ver      Date        Author           Description
 -------  ----------  ---------------  ------------------------------------------------------------------------
 1.0      11/03/2019  JJAUSSI          1. Created this process for LDS BC IT243
 1.1      11/09/2019  JJAUSSI          1. Added conn_DFNB3
-
+1.1	 03/04/2020  Bruno	      2. 4.4		
 
 
 RUNTIME: 
