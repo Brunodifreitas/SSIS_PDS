@@ -18,21 +18,22 @@ ISBN: 978-0-470-52576-0
 
 -- 1) Review Package Task Log details
 
-SELECT p.PackageID
-     , p.PackageName
-     , pl.*
-     , ptl.*
-     , CONVERT(TIME, ptl.EndDateTime - ptl.StartDateTime) AS DurationSeconds
-  FROM dbo.Package AS p
-       INNER JOIN
-       dbo.PackageVersion AS pv ON p.PackageID = pv.PackageID
-       INNER JOIN
-       dbo.PackageLog AS pl ON pl.PackageVersionID = pv.PackageVersionID
-       INNER JOIN
-       dbo.PackageTaskLog AS ptl ON ptl.PackageLogID = pl.PackageLogID
- WHERE 1 = 1
-       --AND BatchLogID = 3
- ORDER BY ptl.StartDateTime DESC;
+	SELECT p.PackageID
+		 , p.PackageName
+		 , pl.*
+		 , ptl.*
+		 , CONVERT(TIME, ptl.EndDateTime - ptl.StartDateTime) AS DurationSeconds
+	  FROM dbo.Package AS p
+		   INNER JOIN
+		   dbo.PackageVersion AS pv ON p.PackageID = pv.PackageID
+		   INNER JOIN
+		   dbo.PackageLog AS pl ON pl.PackageVersionID = pv.PackageVersionID
+		   INNER JOIN
+		   dbo.PackageTaskLog AS ptl ON ptl.PackageLogID = pl.PackageLogID
+	 WHERE 1 = 1
+		   --AND BatchLogID = 3
+		   --AND p.PackageName = 'SSIS_PDS_TEMPLATE_BF'
+	 ORDER BY ptl.StartDateTime DESC;
 
 
 

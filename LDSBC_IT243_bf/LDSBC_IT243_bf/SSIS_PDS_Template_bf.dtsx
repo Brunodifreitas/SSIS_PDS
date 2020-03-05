@@ -13,7 +13,7 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:VersionBuild="4"
-  DTS:VersionGUID="{06D1A6CD-5190-433D-AE76-9E208E302962}">
+  DTS:VersionGUID="{51109E13-5369-4250-B998-18E3A3E5A446}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,9 +22,11 @@
       DTS:CreationName="OLEDB"
       DTS:DTSID="{9DB77E15-2A78-4395-AB35-0DFBC53A89E4}"
       DTS:ObjectName="DFNB3">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::conn_DFNB3]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=localhost;Initial Catalog=DFNB3;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=DFNB3;Provider=SQLNCLI11;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -32,9 +34,11 @@
       DTS:CreationName="OLEDB"
       DTS:DTSID="{834337B4-7AA8-4748-8551-2D52D62AF6D9}"
       DTS:ObjectName="EXM">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::conn_EXM]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=localhost;Initial Catalog=EXM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=EXM;Provider=SQLNCLI11;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -44,7 +48,7 @@
       DTS:ObjectName="SSIS_PDS">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=localhost;Initial Catalog=SSIS_PDS;Provider=SQLNCLI11;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=SSIS_PDS;Provider=SQLNCLI11;Integrated Security=SSPI;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -89,6 +93,24 @@
       DTS:ObjectName="BatchLogID">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D9C4BBF-ED10-4624-85AE-529069586F3E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="conn_DFNB3">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=localhost;Initial Catalog=DFNB3;Provider=SQLNCLI11;Integrated Security=SSPI;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C54842AB-DB64-4D25-AB38-9FADC62B2FA5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="conn_EXM">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=localhost;Initial Catalog=EXM;Provider=SQLNCLI11;Integrated Security=SSPI;</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -796,44 +818,6 @@
   </ProjectExtensions>
 </Project>]]></ProjectItem>
               <ProjectItem
-                Name="My Project\AssemblyInfo.vb"
-                Encoding="UTF8"><![CDATA[Imports System
-Imports System.Reflection
-Imports System.Runtime.InteropServices
-
-' General Information about an assembly is controlled through the following 
-' set of attributes. Change these attribute values to modify the information
-' associated with an assembly.
-
-' Review the values of the assembly attributes
-
-<Assembly: AssemblyTitle("ST_b05a393198024a37b482c511244d0bbd")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("ST_b05a393198024a37b482c511244d0bbd")> 
-<Assembly: AssemblyCopyright("Copyright @  2020")> 
-<Assembly: AssemblyTrademark("")> 
-<Assembly: CLSCompliant(True)> 
-
-<Assembly: ComVisible(False)> 
-
-'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("e313ac79-306b-4117-b02c-dd3b46502d1f")> 
-
-' Version information for an assembly consists of the following four values:
-'
-'      Major Version
-'      Minor Version 
-'      Build Number
-'      Revision
-'
-' You can specify all the values or you can default the Build and Revision Numbers 
-' by using the '*' as shown below:
-' <Assembly: AssemblyVersion("1.0.*")>
-
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> ]]></ProjectItem>
-              <ProjectItem
                 Name="ScriptMain.vb"
                 Encoding="UTF8"><![CDATA[#Region "Help:  Introduction to the script task"
 'The Script Task allows you to perform virtually any operation that can be accomplished in
@@ -951,6 +935,44 @@ End Class]]></ProjectItem>
   </Profiles>
   <Settings />
 </SettingsFile>]]></ProjectItem>
+              <ProjectItem
+                Name="My Project\AssemblyInfo.vb"
+                Encoding="UTF8"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("ST_b05a393198024a37b482c511244d0bbd")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("ST_b05a393198024a37b482c511244d0bbd")> 
+<Assembly: AssemblyCopyright("Copyright @  2020")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("e313ac79-306b-4117-b02c-dd3b46502d1f")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> ]]></ProjectItem>
               <ProjectItem
                 Name="My Project\Settings.Designer.vb"
                 Encoding="UTF8"><![CDATA['------------------------------------------------------------------------------
@@ -1500,21 +1522,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="189.333333333334,42.6666666666667"
           Id="Package\SQL LogPackage Task"
-          TopLeft="380.791666682189,4.35964910134266" />
+          TopLeft="381.833333333333,5.49999999999993" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="475.979166674428,47.0263157680093">
+          TopLeft="476.5,48.1666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61.1403508986572"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="0,53.6403508986572">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.6403508986572" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1554,21 +1576,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="186.666666666667,42.6666666666667"
+          Size="NaN,NaN"
           Id="Package.EventHandlers[OnError]\SQL LogPackageError"
-          TopLeft="206,40.6666666666667" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnPreExecute]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="200,42.6666666666667"
-          Id="Package.EventHandlers[OnPreExecute]\SQL LogTaskPreExecute"
-          TopLeft="292,112.666666666667" />
+          TopLeft="NaN,NaN" />
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
@@ -1578,9 +1588,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="204,42.6666666666667"
+          Size="NaN,NaN"
           Id="Package.EventHandlers[OnPostExecute]\SQL LogTaskPostExecute"
-          TopLeft="306,124.666666666667" />
+          TopLeft="NaN,NaN" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="NaN,NaN"
+          Id="Package.EventHandlers[OnPreExecute]\SQL LogTaskPreExecute"
+          TopLeft="NaN,NaN" />
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
@@ -1588,47 +1610,33 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package.EventHandlers[OnVariableValueChanged]">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="212,42.6666666666667"
+          Size="NaN,NaN"
           Id="Package.EventHandlers[OnVariableValueChanged]\SCR Conver Value to String"
-          TopLeft="262,115.333333333333" />
+          TopLeft="NaN,NaN" />
         <NodeLayout
-          Size="262.666666666667,42.6666666666667"
+          Size="NaN,NaN"
           Id="Package.EventHandlers[OnVariableValueChanged]\SQL LogVariableValueChanged"
-          TopLeft="252.666666666667,187.333333333333" />
+          TopLeft="NaN,NaN" />
         <EdgeLayout
           Id="Package.EventHandlers[OnVariableValueChanged].PrecedenceConstraints[Constraint]"
-          TopLeft="368,158">
+          TopLeft="NaN,NaN">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16,29.3333333333333"
+              EndConnector="{assembly:Null}"
               Start="0,0"
-              End="16,21.8333333333333">
+              End="0,0">
               <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.6666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.6666666666667"
-                    Point2="0,14.6666666666667"
-                    Point3="4,14.6666666666667" />
-                  <mssgle:LineSegment
-                    End="12,14.6666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12,14.6666666666667"
-                    Point2="16,14.6666666666667"
-                    Point3="16,18.6666666666667" />
-                  <mssgle:LineSegment
-                    End="16,21.8333333333333" />
-                </mssgle:SegmentCollection>
+                <assembly:Null />
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -69,11 +69,35 @@ Connect strings are loaded with passwords to allow for automation of SSIS ETL ba
          , '\Package.Variables[User::conn_EXM].Properties[Value]'
          , 'String'
           );
+		  
+ -- 1.2) conn_DFBN3
 
+    INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                        , ConfiguredValue
+                                        , PackagePath
+                                        , ConfiguredValueType)
+    VALUES
+          (
+           'CommonConfigurations'
+         , 'Data Source=localhost;Initial Catalog=DFNB3;Provider=SQLNCLI11;Integrated Security=SSPI;'
+         , '\Package.Variables[User::conn_DFNB3].Properties[Value]'
+         , 'String'
+          );
 
+ 1.3) conn_SSIS_PDS
 
-
-
+    INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                        , ConfiguredValue
+                                        , PackagePath
+                                        , ConfiguredValueType)
+    VALUES
+          (
+           'CommonConfigurations'
+         , 'Data Source=localhost;Initial Catalog=SSIS_PDS;Provider=SQLNCLI11;Integrated Security=SSPI;'
+         , '\Package.Variables[User::conn_SSIS_PDS].Properties[Value]'
+         , 'String'
+          );
+		 
 
 
     -- 2) Solution Level Configurations
