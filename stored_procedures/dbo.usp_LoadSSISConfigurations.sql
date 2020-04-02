@@ -1,21 +1,23 @@
-USE [SSIS_PDS]
+USE [SSIS_PDS];
 GO
 
 /****** Object:  StoredProcedure [dbo].[usp_LoadSSISConfigurations]    Script Date: 11/10/2019 12:27:40 AM ******/
-DROP PROCEDURE [dbo].[usp_LoadSSISConfigurations]
+
+DROP PROCEDURE dbo.usp_LoadSSISConfigurations;
 GO
 
 /****** Object:  StoredProcedure [dbo].[usp_LoadSSISConfigurations]    Script Date: 11/10/2019 12:27:40 AM ******/
-SET ANSI_NULLS ON
+
+SET ANSI_NULLS ON;
 GO
 
-SET QUOTED_IDENTIFIER ON
+SET QUOTED_IDENTIFIER ON;
 GO
 
 
 
 
-CREATE PROCEDURE [dbo].[usp_LoadSSISConfigurations]
+CREATE PROCEDURE dbo.usp_LoadSSISConfigurations
 AS
     BEGIN
 
@@ -28,7 +30,7 @@ Ver      Date        Author           Description
 -------  ----------  ---------------  ------------------------------------------------------------------------
 1.0      11/03/2019  JJAUSSI          1. Created this process for LDS BC IT243
 1.1      11/09/2019  JJAUSSI          1. Added conn_DFNB3
-1.1	 03/04/2020  Bruno	      2. 4.4		
+1.1		 03/04/2020  Bruno	          2. 4.4		
 
 
 RUNTIME: 
@@ -47,81 +49,81 @@ Connect strings are loaded with passwords to allow for automation of SSIS ETL ba
          
 ******************************************************************************************************************/
 
-    TRUNCATE TABLE dbo.[SSIS Configurations];
+        TRUNCATE TABLE dbo.[SSIS Configurations];
 
 
-    -- 1) Common Configurations
+        -- 1) Common Configurations
 
-    DELETE FROM dbo.[SSIS Configurations]
-     WHERE ConfigurationFilter = 'CommonConfigurations';
+        DELETE FROM dbo.[SSIS Configurations]
+         WHERE ConfigurationFilter = 'CommonConfigurations';
 
 
-    -- 1.1) conn_EXM
+        -- 1.1) conn_EXM
 
-    INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
-                                        , ConfiguredValue
-                                        , PackagePath
-                                        , ConfiguredValueType)
-    VALUES
-          (
-           'CommonConfigurations'
-         , 'Data Source=localhost;Initial Catalog=EXM;Provider=SQLNCLI11;Integrated Security=SSPI;'
-         , '\Package.Variables[User::conn_EXM].Properties[Value]'
-         , 'String'
-          );
+        INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                            , ConfiguredValue
+                                            , PackagePath
+                                            , ConfiguredValueType)
+        VALUES
+              (
+               'CommonConfigurations'
+             , 'Data Source=localhost;Initial Catalog=EXM;Provider=SQLNCLI11;Integrated Security=SSPI;'
+             , '\Package.Variables[User::conn_EXM].Properties[Value]'
+             , 'String'
+              );
 		  
- -- 1.2) conn_DFBN3
+        -- 1.2) conn_DFBN3
 
-    INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
-                                        , ConfiguredValue
-                                        , PackagePath
-                                        , ConfiguredValueType)
-    VALUES
-          (
-           'CommonConfigurations'
-         , 'Data Source=localhost;Initial Catalog=DFNB3;Provider=SQLNCLI11;Integrated Security=SSPI;'
-         , '\Package.Variables[User::conn_DFNB3].Properties[Value]'
-         , 'String'
-          );
+        INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                            , ConfiguredValue
+                                            , PackagePath
+                                            , ConfiguredValueType)
+        VALUES
+              (
+               'CommonConfigurations'
+             , 'Data Source=localhost;Initial Catalog=DFNB3;Provider=SQLNCLI11;Integrated Security=SSPI;'
+             , '\Package.Variables[User::conn_DFNB3].Properties[Value]'
+             , 'String'
+              );
 
- 1.3) conn_SSIS_PDS
+        --1.3) conn_SSIS_PDS
 
-    INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
-                                        , ConfiguredValue
-                                        , PackagePath
-                                        , ConfiguredValueType)
-    VALUES
-          (
-           'CommonConfigurations'
-         , 'Data Source=localhost;Initial Catalog=SSIS_PDS;Provider=SQLNCLI11;Integrated Security=SSPI;'
-         , '\Package.Variables[User::conn_SSIS_PDS].Properties[Value]'
-         , 'String'
-          );
+        INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                            , ConfiguredValue
+                                            , PackagePath
+                                            , ConfiguredValueType)
+        VALUES
+              (
+               'CommonConfigurations'
+             , 'Data Source=localhost;Initial Catalog=SSIS_PDS;Provider=SQLNCLI11;Integrated Security=SSPI;'
+             , '\Package.Variables[User::conn_SSIS_PDS].Properties[Value]'
+             , 'String'
+              );
 		 
 
 
-    -- 2) Solution Level Configurations
+        -- 2) Solution Level Configurations
 
 
-    -- 2.1) LDSBC_IT243_bf
+        -- 2.1) LDSBC_IT243_bf
+
+        DELETE FROM dbo.[SSIS Configurations]
+         WHERE ConfigurationFilter = 'LDSBC_IT243_bf';
 	
-    DELETE FROM dbo.[SSIS Configurations]
-     WHERE ConfigurationFilter = 'LDSBC_IT243_bf';
-	
 
-	-- 2.1.1) v_data_share_root
+        -- 2.1.1) v_data_share_root
 
-    INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
-                                        , ConfiguredValue
-                                        , PackagePath
-                                        , ConfiguredValueType)
-    VALUES
-          (
-           'LDSBC_IT243_bf'
-		 , 'C:\Users\brunodifreitas\Desktop\GIT Repository\DFNB_src\txt_files\'
-         , '\Package.Variables[User::v_data_share_root].Properties[Value]'
-         , 'String'
-          );
+        INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                            , ConfiguredValue
+                                            , PackagePath
+                                            , ConfiguredValueType)
+        VALUES
+              (
+               'LDSBC_IT243_bf'
+             , 'C:\Users\brunodifreitas\Desktop\GIT Repository\DFNB_src\txt_files\'
+             , '\Package.Variables[User::v_data_share_root].Properties[Value]'
+             , 'String'
+              );
 
 
 
@@ -129,32 +131,50 @@ Connect strings are loaded with passwords to allow for automation of SSIS ETL ba
 
 		  	
 
-    -- 3) Package level configurations
+        -- 3) Package level configurations
 
 
-    -- 3.1) SSIS_PDS_Template
+        -- 3.1) SSIS_PDS_Template
 
-    DELETE FROM dbo.[SSIS Configurations]
-     WHERE ConfigurationFilter = 'SSIS_PDS_Template';
+        DELETE FROM dbo.[SSIS Configurations]
+         WHERE ConfigurationFilter = 'SSIS_PDS_Template';
 	
 
-	-- 3.1.1) v_data_share_root
+        -- 3.1.1) v_data_share_root
 
-    INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
-                                        , ConfiguredValue
-                                        , PackagePath
-                                        , ConfiguredValueType)
-    VALUES
-          (
-           'SSIS_PDS_Template'
-		 , 'C:\Users\z035330\Documents\JJAUSSI\Other\JC\projects\LDSBC\IT_243\repos\DFNB_dw\txt_files\'
-         , '\Package.Variables[User::v_data_share_root].Properties[Value]'
-         , 'String'
-          );
+        INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                            , ConfiguredValue
+                                            , PackagePath
+                                            , ConfiguredValueType)
+        VALUES
+              (
+               'SSIS_PDS_Template'
+             , 'C:\Users\brunodifreitas\Desktop\GIT Repository\DFNB_src\txt_files\'
+             , '\Package.Variables[User::v_data_share_root].Properties[Value]'
+             , 'String'
+              );
 
 
-END;
+        -- 3.2 LOAD DFNB3
+
+        DELETE FROM dbo.[SSIS Configurations]
+         WHERE ConfigurationFilter = 'LoadDFNB3_bf';
+
+        -- 3.2.1 Root DFNB3
+
+        INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                            , ConfiguredValue
+                                            , PackagePath
+                                            , ConfiguredValueType)
+        VALUES
+              (
+               'LoadDFNB3_bf'
+             , 'C:\Users\brunodifreitas\Desktop\GIT Repository\DFNB_src\txt_files\'
+             , '\Package.Variables[User::v_data_share_root].Properties[Value]'
+             , 'String'
+              );
+
+
+    END;
 
 GO
-
-
