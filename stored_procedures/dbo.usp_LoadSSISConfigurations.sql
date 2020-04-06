@@ -31,7 +31,7 @@ Ver      Date        Author           Description
 1.0      11/03/2019  JJAUSSI          1. Created this process for LDS BC IT243
 1.1      11/09/2019  JJAUSSI          1. Added conn_DFNB3
 1.1		 03/04/2020  Bruno	          2. 4.4		
-
+1.2		04/06/2020	 Bruno			  3. 7.2 		 	
 
 RUNTIME: 
 approx 5 sec
@@ -170,6 +170,25 @@ Connect strings are loaded with passwords to allow for automation of SSIS ETL ba
               (
                'LoadDFNB3_bf'
              , 'C:\Users\brunodifreitas\Desktop\GIT Repository\DFNB_src\txt_files\'
+             , '\Package.Variables[User::v_data_share_root].Properties[Value]'
+             , 'String'
+              );
+
+ -- 3.3 LOAD EXM
+
+        DELETE FROM dbo.[SSIS Configurations]
+         WHERE ConfigurationFilter = 'LoadEXM_bf';
+
+        -- 3.3.1 Root EXM
+
+        INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                            , ConfiguredValue
+                                            , PackagePath
+                                            , ConfiguredValueType)
+        VALUES
+              (
+               'LoadEXM_bf'
+             , 'C:\Users\brunodifreitas\Desktop\GIT Repository\EXM\txt_files'
              , '\Package.Variables[User::v_data_share_root].Properties[Value]'
              , 'String'
               );
