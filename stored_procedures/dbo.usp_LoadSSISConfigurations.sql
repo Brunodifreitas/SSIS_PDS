@@ -32,6 +32,8 @@ Ver      Date        Author           Description
 1.1      11/09/2019  JJAUSSI          1. Added conn_DFNB3
 1.1		 03/04/2020  Bruno	          2. 4.4		
 1.2		04/06/2020	 Bruno			  3. 7.2 		 	
+1.3		04/06/2020	 Bruno			  4. 7.3
+
 
 RUNTIME: 
 approx 5 sec
@@ -46,6 +48,10 @@ Load configured variable values for these levels...
 Loads configuration managers for common configuration managers used in template package
 
 Connect strings are loaded with passwords to allow for automation of SSIS ETL based packages
+
+EXEC	dbo.usp_LoadSSISConfigurations;
+SELECT c.*
+FROM	dbo.[SSIS Configurations] AS c;
          
 ******************************************************************************************************************/
 
@@ -192,6 +198,29 @@ Connect strings are loaded with passwords to allow for automation of SSIS ETL ba
              , '\Package.Variables[User::v_data_share_root].Properties[Value]'
              , 'String'
               );
+
+			  
+ -- 3.4 LOAD LoadNAICSCodeHierDim_bf
+
+        DELETE FROM dbo.[SSIS Configurations]
+         WHERE ConfigurationFilter = 'LoadNAICSCodeHierDim_bf';
+
+        -- 3.3.1 Root LoadNAICSCodeHierDim_bf
+
+        INSERT INTO dbo.[SSIS Configurations](ConfigurationFilter
+                                            , ConfiguredValue
+                                            , PackagePath
+                                            , ConfiguredValueType)
+        VALUES
+              (
+               'LoadNAICSCodeHierDim_bf'
+             , 'C:\Users\brunodifreitas\Desktop\GIT Repository\DFNB_dw\xls_files'
+             , '\Package.Variables[User::v_data_share_root].Properties[Value]'
+             , 'String'
+              );
+
+
+
 
 
     END;
